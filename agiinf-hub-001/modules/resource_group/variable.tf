@@ -6,5 +6,5 @@ variable "resource_group_name" {
 variable "resource_group_location" {
   description = "The location of the resource group"
   type        = string
-  default     = "Germany West Central"
+  
 }
