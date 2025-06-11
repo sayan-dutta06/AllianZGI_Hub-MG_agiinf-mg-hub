@@ -13,3 +13,8 @@ variable "address_space" {
 }
 variable "location" {}
 variable "resource_group_name" {}
+
+variable "nsg_names" {
+  description = "List of NSG names"
+  type        = list(string)
+}
