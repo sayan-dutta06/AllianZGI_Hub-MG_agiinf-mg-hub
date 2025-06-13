@@ -20,4 +20,12 @@ module "nsg" {
   resource_group_name = var.resource_group_name
   depends_on = [ module.rg1 ]
 }
+module "subnets" {
+  source              = "./modules/subnets"
+  resource_group_name = var.resource_group_name
+  vnet_name           = var.vnet_name
+  location            = var.location
+  subnets             = var.subnets
+  depends_on          = [module.vnet]
+}
 
