@@ -28,4 +28,14 @@ module "subnets" {
   subnets             = var.subnets
   depends_on          = [module.vnet]
 }
-
+module "express_route" {
+  source                  = "./modules/express_route"
+  name                    = var.express_route_name
+  location                = var.express_route_location
+  resource_group_name     = var.express_route_resource_group
+  service_provider_name   = var.express_route_service_provider_name
+  peering_location        = var.express_route_peering_location
+  bandwidth_in_mbps       = var.express_route_bandwidth_in_mbps
+  sku_tier                = var.express_route_sku_tier
+  sku_family              = var.express_route_sku_family
+}
