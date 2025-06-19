@@ -30,3 +30,13 @@ express_route_peering_location      = "Frankfurt"
 express_route_bandwidth_in_mbps     = 200
 express_route_sku_tier              = "Standard"
 express_route_sku_family            = "MeteredData"
+## virtual network gateway variables
+vng_name                          = "agiinf-vng-hub-gwc-001"
+vng_location                      = "Germany West Central"
+vng_resource_group                = "agiinf-rg-hub-net-001"
+vng_gateway_type                  = "Vpn"
+vng_vpn_type                      = "RouteBased"
+vng_sku                           = "VpnGw1"
+vng_subnet_id                     = "/subscriptions/<sub_id>/resourceGroups/agiinf-rg-hub-net-001/providers/Microsoft.Network/virtualNetworks/agiinf-vnet-hub-gwc-001/subnets/GatewaySubnet"
+vng_private_ip_address_allocation = "Dynamic"
+vng_public_ip_address_id          = "/subscriptions/<sub_id>/resourceGroups/agiinf-rg-hub-net-001/providers/Microsoft.Network/publicIPAddresses/agiinf-pip-hub-gwc-001"

@@ -39,3 +39,18 @@ module "express_route" {
   sku_tier                = var.express_route_sku_tier
   sku_family              = var.express_route_sku_family
 }
+
+# Virtual Network Gateway Module
+# This module creates a Virtual Network Gateway in Azure.
+module "virtual_network_gateway" {
+  source                          = "./modules/virtual_network_gateway"
+  name                            = var.vng_name
+  location                        = var.vng_location
+  resource_group_name             = var.vng_resource_group
+  gateway_type                    = var.vng_gateway_type
+  vpn_type                        = var.vng_vpn_type
+  sku                             = var.vng_sku
+  subnet_id                       = var.vng_subnet_id
+  private_ip_address_allocation   = var.vng_private_ip_address_allocation
+  public_ip_address_id            = var.vng_public_ip_address_id
+}
