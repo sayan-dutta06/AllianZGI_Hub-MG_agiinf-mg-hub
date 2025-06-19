@@ -54,3 +54,17 @@ module "virtual_network_gateway" {
   private_ip_address_allocation   = var.vng_private_ip_address_allocation
   public_ip_address_id            = var.vng_public_ip_address_id
 }
+# Application Gateway Module
+# This module creates an Application Gateway in Azure.
+module "app_gateway" {
+  source      = "./modules/app_gateway"
+  app_gateways = var.app_gateways
+}
+
+# Public IP Module
+# This module creates Public IPs in Azure.
+
+module "public_ip" {
+  source    = "./modules/public_ip"
+  public_ips = var.public_ips
+}

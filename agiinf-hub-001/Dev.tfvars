@@ -40,3 +40,50 @@ vng_sku                           = "VpnGw1"
 vng_subnet_id                     = "/subscriptions/<sub_id>/resourceGroups/agiinf-rg-hub-net-001/providers/Microsoft.Network/virtualNetworks/agiinf-vnet-hub-gwc-001/subnets/GatewaySubnet"
 vng_private_ip_address_allocation = "Dynamic"
 vng_public_ip_address_id          = "/subscriptions/<sub_id>/resourceGroups/agiinf-rg-hub-net-001/providers/Microsoft.Network/publicIPAddresses/agiinf-pip-hub-gwc-001"
+
+
+# Application Gateway Variables
+# This module creates an Application Gateway in Azure.
+app_gateways = {
+  agw1 = {
+    name                = "agiinf-appgw-hub-gwc-001"
+    location            = "Germany West Central"
+    resource_group_name = "agiinf-rg-hub-net-001"
+    sku_name            = "Standard_v2"
+    sku_tier            = "Standard_v2"
+    subnet_id           = "/subscriptions/<sub_id>/resourceGroups/agiinf-rg-hub-net-001/providers/Microsoft.Network/virtualNetworks/agiinf-vnet-hub-gwc-001/subnets/appgw-subnet"
+    frontend_ip_config = {
+      name                 = "frontend-ip"
+      public_ip_address_id = "/subscriptions/<sub_id>/resourceGroups/agiinf-rg-hub-net-001/providers/Microsoft.Network/publicIPAddresses/agiinf-pip-appgw-gwc-001"
+    }
+  }
+  agw2 = {
+    name                = "agiinf-appgw-hub-gwc-002"
+    location            = "Germany West Central"
+    resource_group_name = "agiinf-rg-hub-net-001"
+    sku_name            = "Standard_v2"
+    sku_tier            = "Standard_v2"
+    subnet_id           = "/subscriptions/<sub_id>/resourceGroups/agiinf-rg-hub-net-001/providers/Microsoft.Network/virtualNetworks/agiinf-vnet-hub-gwc-001/subnets/appgw-subnet"
+    frontend_ip_config = {
+      name                 = "frontend-ip"
+      public_ip_address_id = "/subscriptions/<sub_id>/resourceGroups/agiinf-rg-hub-net-001/providers/Microsoft.Network/publicIPAddresses/agiinf-pip-appgw-gwc-002"
+    }
+  }
+}
+
+public_ips = {
+  pip1 = {
+    name                = "agiinf-pip-hub-gwc-001"
+    location            = "Germany West Central"
+    resource_group_name = "agiinf-rg-hub-net-001"
+    allocation_method   = "Static"
+    sku                 = "Standard"
+  }
+  pip2 = {
+    name                = "agiinf-pip-hub-gwc-002"
+    location            = "Germany West Central"
+    resource_group_name = "agiinf-rg-hub-net-001"
+    allocation_method   = "Static"
+    sku                 = "Standard"
+  }
+}

@@ -43,3 +43,33 @@ variable "vng_sku" {}
 variable "vng_subnet_id" {}
 variable "vng_private_ip_address_allocation" {}
 variable "vng_public_ip_address_id" {}
+
+# Application Gateway Variables
+# This module creates an Application Gateway in Azure.
+
+variable "app_gateways" {
+  description = "Map of Application Gateways and their properties"
+  type = map(object({
+    name                = string
+    location            = string
+    resource_group_name = string
+    sku_name            = string
+    sku_tier            = string
+    subnet_id           = string
+    frontend_ip_config  = object({
+      name                 = string
+      public_ip_address_id = string
+    })
+  }))
+}
+
+variable "public_ips" {
+  description = "Map of public IPs to create"
+  type = map(object({
+    name                = string
+    location            = string
+    resource_group_name = string
+    allocation_method   = string
+    sku                 = string
+  }))
+}
